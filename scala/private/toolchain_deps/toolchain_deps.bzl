@@ -9,6 +9,11 @@ def _files_of(deps):
 def _log_required_provider_id(target, toolchain_type_label, provider_id):
     fail(target + " requires mapping of " + provider_id + " provider id on the toolchain " + toolchain_type_label)
 
+def java_info_for_deps(deps):
+    deps_files = _files_of(deps).to_list()
+    deps_providers = [JavaInfo(output_jar = jar, compile_jar = jar) for jar in deps_files]
+    return [java_common.merge(deps_providers)]
+
 def expose_toolchain_deps(ctx, toolchain_type_label):
     dep_provider_id = ctx.attr.provider_id
     dep_providers_map = getattr(ctx.toolchains[toolchain_type_label], "dep_providers")
@@ -21,3 +26,5 @@ def expose_toolchain_deps(ctx, toolchain_type_label):
     deps_files = _files_of(deps).to_list()
     deps_providers = [JavaInfo(output_jar = jar, compile_jar = jar) for jar in deps_files]
     return [java_common.merge(deps_providers)]
+    deps = dep_provider[DepsInfo].deps
+    return java_info_for_deps(deps)
