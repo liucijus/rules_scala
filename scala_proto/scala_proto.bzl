@@ -19,15 +19,10 @@ load(
     "scalapb_aspect",
 )
 
-def register_default_proto_dependencies():
-    # for backwards compatibility register toolchain for deps
-    native.register_toolchains("@io_bazel_rules_scala//scala_proto/toolchain:proto_toolchain")
-
 def scala_proto_repositories(
         scala_version = _default_scala_version(),
         maven_servers = _default_maven_server_urls()):
     ret = scala_proto_default_repositories(scala_version, maven_servers)
-    register_default_proto_dependencies()
     return ret
 
 def _scala_proto_library_impl(ctx):

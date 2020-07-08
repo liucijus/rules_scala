@@ -38,15 +38,15 @@ toolchain(
     visibility = ["//visibility:public"],
 )
 
-load("//scala_proto/toolchain:toolchain.bzl", "proto_toolchain_deps")
+load("//scala/private/toolchain_deps:toolchain_dep_rules.bzl", "common_toolchain_deps")
 
-proto_toolchain_deps(
+common_toolchain_deps(
     name = "default_scalapb_compile_dependencies",
-    provider_id = "compile_deps",
+    provider_id = "pb_compile_deps",
     visibility = ["//visibility:public"],
 )
 
-proto_toolchain_deps(
+common_toolchain_deps(
     name = "default_scalapb_grpc_dependencies",
     provider_id = "grpc_deps",
     visibility = ["//visibility:public"],

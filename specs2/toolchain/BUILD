@@ -1,18 +1,6 @@
 load("@io_bazel_rules_scala//scala:providers.bzl", "declare_deps_provider")
 load("//scala/toolchains:toolchains.bzl", "declare_deps_toolchain")
 
-toolchain_type(
-    name = "specs2_toolchain_type",
-    visibility = ["//visibility:public"],
-)
-
-toolchain(
-    name = "specs2_toolchain",
-    toolchain = ":specs2_toolchain_impl",
-    toolchain_type = ":specs2_toolchain_type",
-    visibility = ["//visibility:public"],
-)
-
 declare_deps_provider(
     name = "specs2_deps_provider",
     visibility = ["//visibility:public"],

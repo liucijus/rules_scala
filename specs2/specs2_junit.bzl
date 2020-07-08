@@ -52,8 +52,6 @@ def specs2_junit_repositories(
         actual = "@io_bazel_rules_scala_org_specs2_specs2_junit",
     )
 
-    native.register_toolchains("@io_bazel_rules_scala//specs2/toolchain:specs2_toolchain")
-
 def specs2_junit_dependencies():
     return specs2_dependencies() + [
         "@io_bazel_rules_scala//specs2:specs2_junit_classpath",

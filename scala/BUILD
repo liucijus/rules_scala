@@ -126,6 +126,11 @@ declare_deps_toolchain(
     dep_providers = {
         "@io_bazel_rules_scala//scala:scala_xml_provider": "scala_xml",
         "@io_bazel_rules_scala//scala:parser_combinators_provider": "parser_combinators",
+        "@io_bazel_rules_scala//scala/scalatest/toolchain:scalatest_deps_provider": "scalatest_classpath",
+        "@io_bazel_rules_scala//scala_proto/toolchain:scalapb_compile_deps_provider": "pb_compile_deps",
+        "@io_bazel_rules_scala//scala_proto/toolchain:scalapb_grpc_deps_provider": "grpc_deps",
+        "@io_bazel_rules_scala//specs2/toolchain:specs2_deps_provider": "specs2",
+        "@io_bazel_rules_scala//specs2/toolchain:specs2_junit_deps_provider": "specs2_junit",
     },
     visibility = ["//visibility:public"],
 )
