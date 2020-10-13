@@ -164,21 +164,20 @@ load("//third_party/repositories:repositories.bzl", "repositories")
 jvm_maven_import_external(
     name = "org_typelevel__cats_core",
     artifact = scala_mvn_artifact(
-        "org.typelevel:cats-core:0.9.0",
+        "org.typelevel:cats-core:2.2.0",
         default_scala_major_version(),
     ),
-    artifact_sha256 = "3ca705cba9dc0632e60477d80779006f8c636c0e2e229dda3410a0c314c1ea1d",
+    artifact_sha256 = "6058d02418e4eb5f1919a1156d63d2d1b93f2c6190b1a1806ee2b73f8726a92f",
     server_urls = MAVEN_SERVER_URLS,
 )
 
 repositories(
+    fetch_sources = False,
     for_artifact_ids = [
         # test adding a scala jar:
         "com_twitter__scalding_date",
         # For testing that we don't include sources jars to the classpath
         #        "org_typelevel__cats_core",
-        # test of a plugin
-        "org_psywerx_hairyfotr__linter",
         # test of strict deps (scalac plugin UT + E2E)
         "com_google_guava_guava_21_0_with_file",
         "com_github_jnr_jffi_native",
