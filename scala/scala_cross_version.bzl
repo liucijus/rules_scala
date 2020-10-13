@@ -17,7 +17,9 @@ resolution."""
 
 def default_scala_version():
     """return the scala version for use in maven coordinates"""
-    return "2.12.11"
+
+    #    return "2.12.11"
+    return "2.13.3"
 
 def default_maven_server_urls():
     return [
