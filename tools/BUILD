@@ -12,3 +12,8 @@ load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
         "print_if_changed",
     ]
 ]
+
+buildifier(
+    name = "buildifier_lint_fix",
+    lint_mode = "fix",
+)
